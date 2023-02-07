@@ -95,16 +95,34 @@ object Form1: TForm1
         Width = 717
         Height = 369
         Align = alClient
+        DataSource = DataSource1
         TabOrder = 0
         TitleFont.Charset = DEFAULT_CHARSET
         TitleFont.Color = clWindowText
         TitleFont.Height = -11
         TitleFont.Name = 'Tahoma'
         TitleFont.Style = []
+        Columns = <
+          item
+            Expanded = False
+            FieldName = 'ID_CLIENTE'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'NOME'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'ID_CONVENIO'
+            Visible = True
+          end>
       end
     end
   end
   object DataSource1: TDataSource
+    DataSet = DataModule1.ClientDataSet1
     Left = 644
     Top = 360
   end

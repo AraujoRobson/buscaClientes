@@ -39,6 +39,8 @@ implementation
 
 {$R *.dfm}
 
+uses dtmPrincipal;
+
 procedure TForm1.Sobre2Click(Sender: TObject);
 begin
   Close;
