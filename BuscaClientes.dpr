@@ -2,16 +2,18 @@ program BuscaClientes;
 
 uses
   Vcl.Forms,
-  Principal in 'Principal.pas' {Form1},
+  frmPrincipal in 'src\frmPrincipal.pas' {Form1},
   Vcl.Themes,
-  Vcl.Styles;
+  Vcl.Styles,
+  dtmPrincipal in 'src\dtmPrincipal.pas' {DataModule1: TDataModule};
 
 {$R *.res}
 
 begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
-  TStyleManager.TrySetStyle('Glow');
+  TStyleManager.TrySetStyle('Tablet Dark');
   Application.CreateForm(TForm1, Form1);
+  Application.CreateForm(TDataModule1, DataModule1);
   Application.Run;
 end.
