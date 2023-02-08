@@ -21,71 +21,13 @@ object DataModule1: TDataModule1
     Left = 56
     Top = 104
   end
-  object FDQuery1: TFDQuery
-    Connection = FDConnection1
-    SQL.Strings = (
-      
-        'SELECT ID_CLIENTE, ID_CONVENIO, DT_CADASTRO, NOME, CONTATO, DDD_' +
-        'COMER, FONE_COMER, DDD_CELUL, FONE_CELUL'
-      'FROM TB_CLIENTE'
-      'WHERE ID_CONVENIO IS NOT NULL;')
-    Left = 480
-    Top = 48
-    object FDQuery1ID_CLIENTE: TIntegerField
-      FieldName = 'ID_CLIENTE'
-      Origin = 'ID_CLIENTE'
-      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
-      Required = True
-    end
-    object FDQuery1ID_CONVENIO: TSmallintField
-      FieldName = 'ID_CONVENIO'
-      Origin = 'ID_CONVENIO'
-    end
-    object FDQuery1DT_CADASTRO: TDateField
-      FieldName = 'DT_CADASTRO'
-      Origin = 'DT_CADASTRO'
-      Required = True
-    end
-    object FDQuery1NOME: TStringField
-      FieldName = 'NOME'
-      Origin = 'NOME'
-      Required = True
-      Size = 60
-    end
-    object FDQuery1CONTATO: TStringField
-      FieldName = 'CONTATO'
-      Origin = 'CONTATO'
-      Size = 35
-    end
-    object FDQuery1DDD_COMER: TStringField
-      FieldName = 'DDD_COMER'
-      Origin = 'DDD_COMER'
-      FixedChar = True
-      Size = 2
-    end
-    object FDQuery1FONE_COMER: TStringField
-      FieldName = 'FONE_COMER'
-      Origin = 'FONE_COMER'
-      Size = 13
-    end
-    object FDQuery1DDD_CELUL: TStringField
-      FieldName = 'DDD_CELUL'
-      Origin = 'DDD_CELUL'
-      FixedChar = True
-      Size = 2
-    end
-    object FDQuery1FONE_CELUL: TStringField
-      FieldName = 'FONE_CELUL'
-      Origin = 'FONE_CELUL'
-      Size = 13
-    end
-  end
   object FDGUIxWaitCursor1: TFDGUIxWaitCursor
     Provider = 'Forms'
     Left = 56
     Top = 176
   end
   object FDPhysFBDriverLink1: TFDPhysFBDriverLink
+    VendorLib = 'C:\Windows\System32\FBCLIENT.DLL'
     Left = 56
     Top = 240
   end
@@ -95,59 +37,59 @@ object DataModule1: TDataModule1
     Params = <>
     ProviderName = 'DataSetProvider1'
     Left = 480
-    Top = 192
+    Top = 168
     object ClientDataSet1ID_CLIENTE: TIntegerField
+      DisplayLabel = 'C'#243'digo Cliente'
       FieldName = 'ID_CLIENTE'
       Origin = 'ID_CLIENTE'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       Required = True
     end
-    object ClientDataSet1ID_CONVENIO: TSmallintField
-      FieldName = 'ID_CONVENIO'
-      Origin = 'ID_CONVENIO'
-    end
-    object ClientDataSet1DT_CADASTRO: TDateField
-      FieldName = 'DT_CADASTRO'
-      Origin = 'DT_CADASTRO'
-      Required = True
-    end
     object ClientDataSet1NOME: TStringField
+      DisplayLabel = 'Nome'
       FieldName = 'NOME'
       Origin = 'NOME'
       Required = True
       Size = 60
     end
-    object ClientDataSet1CONTATO: TStringField
-      FieldName = 'CONTATO'
-      Origin = 'CONTATO'
-      Size = 35
-    end
-    object ClientDataSet1DDD_COMER: TStringField
-      FieldName = 'DDD_COMER'
-      Origin = 'DDD_COMER'
+    object ClientDataSet1CNPJ: TStringField
+      FieldName = 'CNPJ'
+      Origin = 'CNPJ'
+      ProviderFlags = []
+      ReadOnly = True
       FixedChar = True
-      Size = 2
+      Size = 18
     end
-    object ClientDataSet1FONE_COMER: TStringField
-      FieldName = 'FONE_COMER'
-      Origin = 'FONE_COMER'
-      Size = 13
-    end
-    object ClientDataSet1DDD_CELUL: TStringField
-      FieldName = 'DDD_CELUL'
-      Origin = 'DDD_CELUL'
-      FixedChar = True
-      Size = 2
-    end
-    object ClientDataSet1FONE_CELUL: TStringField
-      FieldName = 'FONE_CELUL'
-      Origin = 'FONE_CELUL'
-      Size = 13
+    object ClientDataSet1DESCRICAO: TStringField
+      DisplayLabel = 'Convenio'
+      FieldName = 'DESCRICAO'
+      Origin = 'DESCRICAO'
+      ProviderFlags = []
+      ReadOnly = True
+      Size = 50
     end
   end
   object DataSetProvider1: TDataSetProvider
     DataSet = FDQuery1
     Left = 480
-    Top = 120
+    Top = 104
+  end
+  object FDQuery1: TFDQuery
+    Active = True
+    Connection = FDConnection1
+    SQL.Strings = (
+      'SELECT '
+      '  cli.id_cliente, '
+      '  cli.nome, '
+      '  pj.CNPJ, '
+      '  con.DESCRICAO '
+      'FROM '
+      '  TB_CLIENTE cli'
+      '  LEFT JOIN TB_CLI_PJ pj ON cli.id_cliente = pj.id_cliente'
+      
+        '  LEFT JOIN TB_CLI_CONVENIO con ON cli.ID_CONVENIO = con.ID_CONV' +
+        'ENIO;')
+    Left = 476
+    Top = 48
   end
 end
