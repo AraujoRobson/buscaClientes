@@ -1,9 +1,11 @@
 object Form1: TForm1
   Left = 0
   Top = 0
+  BorderIcons = [biSystemMenu, biMinimize]
+  BorderStyle = bsSingle
   Caption = 'Buscar Clientes com Contratos'
-  ClientHeight = 410
-  ClientWidth = 760
+  ClientHeight = 453
+  ClientWidth = 768
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -390,7 +392,7 @@ object Form1: TForm1
     AlignWithMargins = True
     Left = 3
     Top = 3
-    Width = 754
+    Width = 762
     Height = 48
     Align = alTop
     TabOrder = 0
@@ -398,7 +400,7 @@ object Form1: TForm1
     object GroupBox1: TGroupBox
       Left = 1
       Top = 1
-      Width = 752
+      Width = 760
       Height = 46
       Align = alClient
       Caption = 'Buscar Cliente'
@@ -407,11 +409,11 @@ object Form1: TForm1
       ExplicitHeight = 52
       object btnBuscar: TButton
         AlignWithMargins = True
-        Left = 383
+        Left = 397
         Top = 18
-        Width = 347
+        Width = 211
         Height = 23
-        Margins.Right = 20
+        Margins.Right = 150
         Align = alRight
         Caption = 'Buscar'
         Font.Charset = ANSI_CHARSET
@@ -422,18 +424,17 @@ object Form1: TForm1
         ParentFont = False
         TabOrder = 0
         OnClick = btnBuscarClick
-        ExplicitLeft = 380
+        ExplicitLeft = 311
       end
-      object edtCNPJ: TEdit
+      object edtPesquisa: TEdit
         AlignWithMargins = True
-        Left = 18
+        Left = 152
         Top = 18
-        Width = 347
+        Width = 211
         Height = 23
         Hint = 'CNPJ'
-        Margins.Left = 16
+        Margins.Left = 150
         Align = alLeft
-        Alignment = taCenter
         Font.Charset = ANSI_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
@@ -443,6 +444,7 @@ object Form1: TForm1
         ParentShowHint = False
         ShowHint = True
         TabOrder = 1
+        ExplicitLeft = 102
       end
     end
   end
@@ -450,8 +452,8 @@ object Form1: TForm1
     AlignWithMargins = True
     Left = 3
     Top = 57
-    Width = 754
-    Height = 350
+    Width = 762
+    Height = 393
     Align = alClient
     TabOrder = 1
     ExplicitTop = 63
@@ -460,8 +462,8 @@ object Form1: TForm1
     object GroupBox2: TGroupBox
       Left = 1
       Top = 1
-      Width = 752
-      Height = 348
+      Width = 760
+      Height = 391
       Align = alClient
       Caption = 'Clientes'
       TabOrder = 0
@@ -473,8 +475,8 @@ object Form1: TForm1
         AlignWithMargins = True
         Left = 5
         Top = 18
-        Width = 742
-        Height = 325
+        Width = 750
+        Height = 368
         Align = alClient
         DataSource = DataSource1
         TabOrder = 0

@@ -36,10 +36,11 @@ object DataModule1: TDataModule1
     Aggregates = <>
     Params = <>
     ProviderName = 'DataSetProvider1'
-    Left = 480
+    Left = 328
     Top = 168
     object ClientDataSet1ID_CLIENTE: TIntegerField
-      DisplayLabel = 'C'#243'digo Cliente'
+      DisplayLabel = 'ID'
+      DisplayWidth = 5
       FieldName = 'ID_CLIENTE'
       Origin = 'ID_CLIENTE'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
@@ -47,12 +48,14 @@ object DataModule1: TDataModule1
     end
     object ClientDataSet1NOME: TStringField
       DisplayLabel = 'Nome'
+      DisplayWidth = 60
       FieldName = 'NOME'
       Origin = 'NOME'
       Required = True
       Size = 60
     end
     object ClientDataSet1CNPJ: TStringField
+      DisplayWidth = 19
       FieldName = 'CNPJ'
       Origin = 'CNPJ'
       ProviderFlags = []
@@ -62,6 +65,7 @@ object DataModule1: TDataModule1
     end
     object ClientDataSet1DESCRICAO: TStringField
       DisplayLabel = 'Convenio'
+      DisplayWidth = 26
       FieldName = 'DESCRICAO'
       Origin = 'DESCRICAO'
       ProviderFlags = []
@@ -71,11 +75,10 @@ object DataModule1: TDataModule1
   end
   object DataSetProvider1: TDataSetProvider
     DataSet = FDQuery1
-    Left = 480
+    Left = 328
     Top = 104
   end
   object FDQuery1: TFDQuery
-    Active = True
     Connection = FDConnection1
     SQL.Strings = (
       'SELECT '
@@ -89,7 +92,7 @@ object DataModule1: TDataModule1
       
         '  LEFT JOIN TB_CLI_CONVENIO con ON cli.ID_CONVENIO = con.ID_CONV' +
         'ENIO;')
-    Left = 476
+    Left = 324
     Top = 48
   end
 end
