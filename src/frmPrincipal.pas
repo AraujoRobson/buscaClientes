@@ -41,6 +41,7 @@ uses
   FireDAC.DApt.Intf,
   FireDAC.DApt,
   FireDAC.Comp.DataSet,
+  FireDAC.Stan.ExprFuncs,
   Vcl.Mask,
   Vcl.DBCtrls;
 
@@ -52,7 +53,7 @@ type
     Panel2: TPanel;
     GroupBox2: TGroupBox;
     DataSource1: TDataSource;
-    edtCNPJ: TEdit;
+    edtPesquisa: TEdit;
     DBGrid1: TDBGrid;
     procedure btnBuscarClick(Sender: TObject);
     procedure Sobre2Click(Sender: TObject);
@@ -69,18 +70,22 @@ implementation
 
 {$R *.dfm}
 
-uses dtmPrincipal;
+uses dtmPrincipal, FormatCNPJ;
 
 procedure TForm1.btnBuscarClick(Sender: TObject);
 var
-  cnpj: String;
-  cnpjPesquisa: String;
+  Pesquisa, PesquisaCNPJ, PesquisaNome, FormataCNPJ: String;
 begin
-  cnpj := edtCNPJ.Text;
-  cnpjPesquisa := cnpj;
+  pesquisa := edtPesquisa.Text;
 
-  dtmPrincipal.DataModule1.FDQuery1.Filter := 'TB_CLI_PJ.CNPJ = ' + cnpjPesquisa;
-  dtmPrincipal.DataModule1.FDQuery1.Filtered := True;
+  FormataCNPJ := 'Form';
+
+  PesquisaCNPJ := 'CNPJ LIKE ''%' + FormataCNPJ + '%''';
+  PesquisaNome := 'NOME LIKE ''%' + pesquisa + '%''';
+
+  dtmPrincipal.DataModule1.ClientDataSet1.FilterOptions := [foCaseInsensitive];
+  dtmPrincipal.DataModule1.ClientDataSet1.Filter := PesquisaCNPJ + ' OR ' + PesquisaNome;
+  dtmPrincipal.DataModule1.ClientDataSet1.Filtered := True;
 end;
 
 procedure TForm1.Sobre2Click(Sender: TObject);

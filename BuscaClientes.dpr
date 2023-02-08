@@ -5,7 +5,8 @@ uses
   frmPrincipal in 'src\frmPrincipal.pas' {Form1},
   Vcl.Themes,
   Vcl.Styles,
-  dtmPrincipal in 'src\dtmPrincipal.pas' {DataModule1: TDataModule};
+  dtmPrincipal in 'src\dtmPrincipal.pas' {DataModule1: TDataModule},
+  FormatCNPJ in 'src\FormatCNPJ.pas';
 
 {$R *.res}
 
