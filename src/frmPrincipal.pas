@@ -43,7 +43,9 @@ uses
   FireDAC.Comp.DataSet,
   FireDAC.Stan.ExprFuncs,
   Vcl.Mask,
-  Vcl.DBCtrls;
+  FormatCNPJ,
+  Vcl.DBCtrls,
+  dtmPrincipal;
 
 type
   TForm1 = class(TForm)
@@ -55,10 +57,11 @@ type
     DataSource1: TDataSource;
     edtPesquisa: TEdit;
     DBGrid1: TDBGrid;
+    procedure FormCreate(Sender: TObject);
     procedure btnBuscarClick(Sender: TObject);
     procedure Sobre2Click(Sender: TObject);
   private
-    { Private declarations }
+    CNPJ : TFormatCNPJ;
   public
     { Public declarations }
   end;
@@ -70,7 +73,10 @@ implementation
 
 {$R *.dfm}
 
-uses dtmPrincipal, FormatCNPJ;
+procedure TForm1.FormCreate(Sender: TObject);
+begin
+  CNPJ := TFormatCNPJ.Create;
+end;
 
 procedure TForm1.btnBuscarClick(Sender: TObject);
 var
@@ -78,7 +84,10 @@ var
 begin
   pesquisa := edtPesquisa.Text;
 
-  FormataCNPJ := 'Form';
+  if Length(pesquisa) > 0 then
+  begin
+    FormataCNPJ := CNPJ.FormatarCNPJ(Pesquisa);
+  end;
 
   PesquisaCNPJ := 'CNPJ LIKE ''%' + FormataCNPJ + '%''';
   PesquisaNome := 'NOME LIKE ''%' + pesquisa + '%''';

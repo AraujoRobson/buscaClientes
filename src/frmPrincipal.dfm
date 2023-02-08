@@ -386,6 +386,7 @@ object Form1: TForm1
     F77ED36239393969676BFF1FD6E74E5120E7DB640000000049454E44AE426082}
   OldCreateOrder = False
   Position = poScreenCenter
+  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   object Panel1: TPanel
@@ -396,7 +397,6 @@ object Form1: TForm1
     Height = 48
     Align = alTop
     TabOrder = 0
-    ExplicitWidth = 400
     object GroupBox1: TGroupBox
       Left = 1
       Top = 1
@@ -405,8 +405,6 @@ object Form1: TForm1
       Align = alClient
       Caption = 'Buscar Cliente'
       TabOrder = 0
-      ExplicitWidth = 398
-      ExplicitHeight = 52
       object btnBuscar: TButton
         AlignWithMargins = True
         Left = 397
@@ -424,7 +422,6 @@ object Form1: TForm1
         ParentFont = False
         TabOrder = 0
         OnClick = btnBuscarClick
-        ExplicitLeft = 311
       end
       object edtPesquisa: TEdit
         AlignWithMargins = True
@@ -444,7 +441,6 @@ object Form1: TForm1
         ParentShowHint = False
         ShowHint = True
         TabOrder = 1
-        ExplicitLeft = 102
       end
     end
   end
@@ -456,9 +452,6 @@ object Form1: TForm1
     Height = 393
     Align = alClient
     TabOrder = 1
-    ExplicitTop = 63
-    ExplicitWidth = 723
-    ExplicitHeight = 388
     object GroupBox2: TGroupBox
       Left = 1
       Top = 1
@@ -467,10 +460,6 @@ object Form1: TForm1
       Align = alClient
       Caption = 'Clientes'
       TabOrder = 0
-      ExplicitLeft = 17
-      ExplicitTop = -15
-      ExplicitWidth = 721
-      ExplicitHeight = 386
       object DBGrid1: TDBGrid
         AlignWithMargins = True
         Left = 5
