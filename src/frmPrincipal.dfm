@@ -5,13 +5,14 @@ object Form1: TForm1
   BorderStyle = bsSingle
   Caption = 'Buscar Clientes com Contratos'
   ClientHeight = 453
-  ClientWidth = 768
+  ClientWidth = 846
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
   Font.Name = 'Tahoma'
   Font.Style = []
+  FormStyle = fsMDIForm
   Icon.Data = {
     00000100010000000000010020004A2E00001600000089504E470D0A1A0A0000
     000D49484452000001000000010008060000005C72A866000000016F724E5401
@@ -384,6 +385,7 @@ object Form1: TForm1
     11C8A99E868BFF7320EE8BA0DF815E71924809904B0AEFA95FC33DF63CDC6BCF
     E2805C704A07E0DEDC06F7E21C8C5AC3A63662A2E5C976A8FEC8305D69F40684
     F77ED36239393969676BFF1FD6E74E5120E7DB640000000049454E44AE426082}
+  Menu = MainMenu1
   OldCreateOrder = False
   Position = poScreenCenter
   OnCreate = FormCreate
@@ -393,93 +395,99 @@ object Form1: TForm1
     AlignWithMargins = True
     Left = 3
     Top = 3
-    Width = 762
-    Height = 48
+    Width = 840
+    Height = 45
     Align = alTop
+    Padding.Top = 5
+    Padding.Bottom = 5
     TabOrder = 0
-    object GroupBox1: TGroupBox
-      Left = 1
-      Top = 1
-      Width = 760
-      Height = 46
-      Align = alClient
-      Caption = 'Buscar Cliente'
+    object btnBuscar: TButton
+      AlignWithMargins = True
+      Left = 234
+      Top = 9
+      Width = 100
+      Height = 27
+      Margins.Right = 150
+      Align = alLeft
+      Caption = 'Buscar'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
       TabOrder = 0
-      object btnBuscar: TButton
-        AlignWithMargins = True
-        Left = 397
-        Top = 18
-        Width = 211
-        Height = 23
-        Margins.Right = 150
-        Align = alRight
-        Caption = 'Buscar'
-        Font.Charset = ANSI_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -13
-        Font.Name = 'Consolas'
-        Font.Style = []
-        ParentFont = False
-        TabOrder = 0
-        OnClick = btnBuscarClick
-      end
-      object edtPesquisa: TEdit
-        AlignWithMargins = True
-        Left = 152
-        Top = 18
-        Width = 211
-        Height = 23
-        Hint = 'CNPJ'
-        Margins.Left = 150
-        Align = alLeft
-        Font.Charset = ANSI_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -13
-        Font.Name = 'Consolas'
-        Font.Style = []
-        ParentFont = False
-        ParentShowHint = False
-        ShowHint = True
-        TabOrder = 1
-      end
+      OnClick = btnBuscarClick
+    end
+    object edtPesquisa: TEdit
+      AlignWithMargins = True
+      Left = 17
+      Top = 9
+      Width = 211
+      Height = 27
+      Hint = 'Nome ou CNPJ'
+      Margins.Left = 16
+      Align = alLeft
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 1
+      OnKeyPress = edtPesquisaKeyPress
+      ExplicitHeight = 22
     end
   end
   object Panel2: TPanel
     AlignWithMargins = True
     Left = 3
-    Top = 57
-    Width = 762
-    Height = 393
+    Top = 54
+    Width = 840
+    Height = 396
     Align = alClient
     TabOrder = 1
-    object GroupBox2: TGroupBox
-      Left = 1
-      Top = 1
-      Width = 760
-      Height = 391
+    object DBGrid1: TDBGrid
+      AlignWithMargins = True
+      Left = 4
+      Top = 4
+      Width = 832
+      Height = 388
       Align = alClient
-      Caption = 'Clientes'
+      DataSource = DataSource1
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
       TabOrder = 0
-      object DBGrid1: TDBGrid
-        AlignWithMargins = True
-        Left = 5
-        Top = 18
-        Width = 750
-        Height = 368
-        Align = alClient
-        DataSource = DataSource1
-        TabOrder = 0
-        TitleFont.Charset = DEFAULT_CHARSET
-        TitleFont.Color = clWindowText
-        TitleFont.Height = -11
-        TitleFont.Name = 'Tahoma'
-        TitleFont.Style = []
-      end
+      TitleFont.Charset = DEFAULT_CHARSET
+      TitleFont.Color = clWindowText
+      TitleFont.Height = -11
+      TitleFont.Name = 'Tahoma'
+      TitleFont.Style = []
     end
   end
   object DataSource1: TDataSource
     DataSet = DataModule1.ClientDataSet1
-    Left = 24
-    Top = 216
+    Left = 752
+    Top = 8
+  end
+  object MainMenu1: TMainMenu
+    Left = 807
+    Top = 7
+    object Arquivo1: TMenuItem
+      Caption = '&Arquivo'
+      object BancodeDados1: TMenuItem
+        Caption = '&Banco de Dados'
+      end
+    end
+    object Arquivo2: TMenuItem
+      Caption = '&Sobre'
+      OnClick = Arquivo2Click
+    end
   end
 end

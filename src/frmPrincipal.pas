@@ -45,20 +45,25 @@ uses
   Vcl.Mask,
   FormatCNPJ,
   Vcl.DBCtrls,
-  dtmPrincipal;
+  dtmPrincipal,
+  FrmSobre;
 
 type
   TForm1 = class(TForm)
     Panel1: TPanel;
-    GroupBox1: TGroupBox;
     btnBuscar: TButton;
     Panel2: TPanel;
-    GroupBox2: TGroupBox;
     DataSource1: TDataSource;
     edtPesquisa: TEdit;
     DBGrid1: TDBGrid;
+    MainMenu1: TMainMenu;
+    Arquivo1: TMenuItem;
+    Arquivo2: TMenuItem;
+    BancodeDados1: TMenuItem;
+    procedure Arquivo2Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure btnBuscarClick(Sender: TObject);
+    procedure edtPesquisaKeyPress(Sender: TObject; var Key: Char);
     procedure Sobre2Click(Sender: TObject);
   private
     CNPJ : TFormatCNPJ;
@@ -72,6 +77,13 @@ var
 implementation
 
 {$R *.dfm}
+
+procedure TForm1.Arquivo2Click(Sender: TObject);
+begin
+  if FormSobre = nil then
+    FormSobre := TFormSobre.Create(self);
+  FormSobre.Show;
+end;
 
 procedure TForm1.FormCreate(Sender: TObject);
 begin
@@ -95,6 +107,13 @@ begin
   dtmPrincipal.DataModule1.ClientDataSet1.FilterOptions := [foCaseInsensitive];
   dtmPrincipal.DataModule1.ClientDataSet1.Filter := PesquisaCNPJ + ' OR ' + PesquisaNome;
   dtmPrincipal.DataModule1.ClientDataSet1.Filtered := True;
+end;
+
+procedure TForm1.edtPesquisaKeyPress(Sender: TObject; var Key: Char);
+begin
+  if Key = #13 then
+    btnBuscarClick(Sender);
+
 end;
 
 procedure TForm1.Sobre2Click(Sender: TObject);
