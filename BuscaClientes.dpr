@@ -7,7 +7,8 @@ uses
   Vcl.Styles,
   dtmPrincipal in 'src\dtmPrincipal.pas' {DataModule1: TDataModule},
   FormatCNPJ in 'src\FormatCNPJ.pas',
-  FrmSobre in 'src\FrmSobre.pas' {FormSobre};
+  FrmSobre in 'src\FrmSobre.pas' {FormSobre},
+  frmDB in 'src\frmDB.pas' {formDB};
 
 {$R *.res}
 

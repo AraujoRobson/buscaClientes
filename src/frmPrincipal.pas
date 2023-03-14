@@ -46,6 +46,7 @@ uses
   FormatCNPJ,
   Vcl.DBCtrls,
   dtmPrincipal,
+  frmDB,
   FrmSobre;
 
 type
@@ -61,6 +62,7 @@ type
     Arquivo2: TMenuItem;
     BancodeDados1: TMenuItem;
     procedure Arquivo2Click(Sender: TObject);
+    procedure BancodeDados1Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure btnBuscarClick(Sender: TObject);
     procedure edtPesquisaKeyPress(Sender: TObject; var Key: Char);
@@ -78,11 +80,19 @@ implementation
 
 {$R *.dfm}
 
+
 procedure TForm1.Arquivo2Click(Sender: TObject);
 begin
   if FormSobre = nil then
     FormSobre := TFormSobre.Create(self);
   FormSobre.Show;
+end;
+
+procedure TForm1.BancodeDados1Click(Sender: TObject);
+begin
+   if FormSobre = nil then
+    formDB := TFormDB.Create(self);
+  formDB.Show;
 end;
 
 procedure TForm1.FormCreate(Sender: TObject);
@@ -113,7 +123,6 @@ procedure TForm1.edtPesquisaKeyPress(Sender: TObject; var Key: Char);
 begin
   if Key = #13 then
     btnBuscarClick(Sender);
-
 end;
 
 procedure TForm1.Sobre2Click(Sender: TObject);
