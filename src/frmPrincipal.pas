@@ -66,6 +66,7 @@ type
     procedure FormCreate(Sender: TObject);
     procedure btnBuscarClick(Sender: TObject);
     procedure edtPesquisaKeyPress(Sender: TObject; var Key: Char);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure Sobre2Click(Sender: TObject);
   private
     CNPJ : TFormatCNPJ;
@@ -123,6 +124,11 @@ procedure TForm1.edtPesquisaKeyPress(Sender: TObject; var Key: Char);
 begin
   if Key = #13 then
     btnBuscarClick(Sender);
+end;
+
+procedure TForm1.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  dtmPrincipal.DataModule1.FDConnection1.Connected := False;
 end;
 
 procedure TForm1.Sobre2Click(Sender: TObject);
