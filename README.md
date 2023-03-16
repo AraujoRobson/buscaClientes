@@ -11,12 +11,12 @@
 
   - Conexão Ok!
   
-![alt text](https://github.com/AraujoRobson/buscaClientes/blob/main/prints/frmDB-conexao-ok.png)
+![Conexao Ok](https://github.com/AraujoRobson/buscaClientes/blob/main/prints/conexao-ok.png)
 
 
   - Sem Conexão!
   
-![alt text](https://github.com/AraujoRobson/buscaClientes/blob/main/prints/frmDB-conexao-x.png)
+![Sem Conexao](https://github.com/AraujoRobson/buscaClientes/blob/main/prints/conexao-x.png)
 
 ## Sobre
 
