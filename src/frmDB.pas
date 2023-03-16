@@ -44,9 +44,6 @@ type
 
 var
   formDB: TformDB;
-  caminhoImagens: string;
-  nomeImagem: string;
-  caminhoCompleto: string;
 
 implementation
 
