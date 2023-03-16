@@ -415,8 +415,7 @@ object formDB: TformDB
       Font.Style = []
       ParentFont = False
       ReadOnly = True
-      TabOrder = 2
-      Text = 'D:\DEV\DBTestes\CLIPPAmmes.FDB'
+      TabOrder = 1
       ExplicitHeight = 27
     end
     object btnCaminhoDB: TButton
@@ -432,22 +431,22 @@ object formDB: TformDB
       Align = alLeft
       Caption = 'Localizar Base'
       TabOrder = 0
-      ExplicitHeight = 34
+      OnClick = btnCaminhoDBClick
     end
-    object BitBtn1: TBitBtn
+    object btnConectar: TButton
       AlignWithMargins = True
-      Left = 521
+      Left = 523
       Top = 6
-      Width = 102
+      Width = 94
       Height = 28
-      Margins.Left = 0
+      Margins.Left = 2
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
-      Align = alRight
+      Align = alLeft
       Caption = 'Conectar'
-      TabOrder = 1
-      ExplicitHeight = 34
+      Enabled = False
+      TabOrder = 2
     end
   end
   object GroupBox1: TGroupBox
@@ -463,10 +462,6 @@ object formDB: TformDB
     Align = alClient
     Caption = 'STATUS DA CONEX'#195'O'
     TabOrder = 1
-    ExplicitLeft = 75
-    ExplicitTop = 82
-    ExplicitWidth = 485
-    ExplicitHeight = 167
     object Image1: TImage
       AlignWithMargins = True
       Left = 5
@@ -620,5 +615,12 @@ object formDB: TformDB
       ExplicitWidth = 105
       ExplicitHeight = 105
     end
+  end
+  object OpenDialog1: TOpenDialog
+    DefaultExt = 'FDB'
+    Filter = '|FDB'
+    Title = 'Selecionar a BASE'
+    Left = 600
+    Top = 48
   end
 end

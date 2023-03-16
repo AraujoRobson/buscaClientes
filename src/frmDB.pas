@@ -17,6 +17,7 @@ uses
   Vcl.Buttons,
   System.ImageList,
   Vcl.ImgList,
+  dtmPrincipal,
   Vcl.Imaging.pngimage;
 
 type
@@ -24,9 +25,11 @@ type
     Panel1: TPanel;
     edtCaminhoBanco: TEdit;
     btnCaminhoDB: TButton;
-    BitBtn1: TBitBtn;
     GroupBox1: TGroupBox;
     Image1: TImage;
+    OpenDialog1: TOpenDialog;
+    btnConectar: TButton;
+    procedure btnCaminhoDBClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -39,5 +42,22 @@ var
 implementation
 
 {$R *.dfm}
+
+procedure TformDB.btnCaminhoDBClick(Sender: TObject);
+begin
+if OpenDialog1.Execute then
+  begin
+    if (UpperCase(ExtractFileExt(OpenDialog1.FileName)) = '.FDB') then
+    begin
+      edtCaminhoBanco.Text := OpenDialog1.FileName;
+      dtmPrincipal.DataModule1.FDConnection1.Params.Values['Database'] := OpenDialog1.FileName;
+
+      if edtCaminhoBanco.Text <> ' ' then
+        btnConectar.Enabled := True;
+    end
+    else
+      ShowMessage('Por favor selecione um arquivo com a extensão .FDB.');
+  end;
+end;
 
 end.

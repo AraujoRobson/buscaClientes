@@ -4,12 +4,12 @@ object DataModule1: TDataModule1
   Width = 718
   object FDConnection1: TFDConnection
     Params.Strings = (
-      'Database=D:\DEV\DBTestes\CLIPPAmmes.FDB'
       'User_Name=SYSDBA'
       'Password=masterkey'
       'Server=Localhost'
       'Port=3050'
       'CharacterSet=WIN1252'
+      'Database=D:\DEV\DBTestes\CLIPPAmmes.FDB'
       'DriverID=FB')
     Connected = True
     LoginPrompt = False
@@ -32,7 +32,6 @@ object DataModule1: TDataModule1
     Top = 240
   end
   object ClientDataSet1: TClientDataSet
-    Active = True
     Aggregates = <>
     Params = <>
     ProviderName = 'DataSetProvider1'
