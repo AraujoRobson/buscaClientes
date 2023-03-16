@@ -9,9 +9,7 @@ object DataModule1: TDataModule1
       'Server=Localhost'
       'Port=3050'
       'CharacterSet=WIN1252'
-      'Database=D:\DEV\DBTestes\CLIPPAmmes.FDB'
       'DriverID=FB')
-    Connected = True
     LoginPrompt = False
     Left = 56
     Top = 40

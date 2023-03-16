@@ -26,13 +26,15 @@ type
     edtCaminhoBanco: TEdit;
     btnCaminhoDB: TButton;
     GroupBox1: TGroupBox;
-    Image1: TImage;
+    imgStatusConexao: TImage;
     OpenDialog1: TOpenDialog;
     btnConectar: TButton;
     Panel2: TPanel;
     btnDesconectar: TButton;
     btnAtualizar: TButton;
+    procedure btnAtualizarClick(Sender: TObject);
     procedure btnCaminhoDBClick(Sender: TObject);
+    procedure btnConectarClick(Sender: TObject);
     procedure edtCaminhoBancoChange(Sender: TObject);
   private
     { Private declarations }
@@ -42,10 +44,21 @@ type
 
 var
   formDB: TformDB;
+  caminhoImagens: string;
+  nomeImagem: string;
+  caminhoCompleto: string;
 
 implementation
 
 {$R *.dfm}
+
+procedure TformDB.btnAtualizarClick(Sender: TObject);
+begin
+  dtmPrincipal.DataModule1.FDQuery1.Active := False;
+  dtmPrincipal.DataModule1.ClientDataSet1.Active := False;
+  dtmPrincipal.DataModule1.FDQuery1.Active := True;
+  dtmPrincipal.DataModule1.ClientDataSet1.Active := True;
+end;
 
 procedure TformDB.btnCaminhoDBClick(Sender: TObject);
 begin
@@ -62,6 +75,17 @@ if OpenDialog1.Execute then
     else
       ShowMessage('Por favor selecione um arquivo com a extensão .FDB.');
   end;
+end;
+
+procedure TformDB.btnConectarClick(Sender: TObject);
+begin
+  edtCaminhoBanco.Enabled := False;
+  btnConectar.Enabled := False;
+  dtmPrincipal.DataModule1.FDConnection1.Connected := True;
+  btnCaminhoDB.Enabled := False;
+  btnAtualizar.Enabled := True;
+  btnAtualizarClick(Sender);
+  btnDesconectar.Enabled := True;
 end;
 
 procedure TformDB.edtCaminhoBancoChange(Sender: TObject);
