@@ -633,6 +633,7 @@ object formDB: TformDB
       Caption = 'Desconectar'
       Enabled = False
       TabOrder = 1
+      OnClick = btnDesconectarClick
     end
     object btnAtualizar: TButton
       AlignWithMargins = True

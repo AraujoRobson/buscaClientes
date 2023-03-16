@@ -35,6 +35,7 @@ type
     procedure btnAtualizarClick(Sender: TObject);
     procedure btnCaminhoDBClick(Sender: TObject);
     procedure btnConectarClick(Sender: TObject);
+    procedure btnDesconectarClick(Sender: TObject);
     procedure edtCaminhoBancoChange(Sender: TObject);
   private
     { Private declarations }
@@ -83,6 +84,19 @@ begin
   btnAtualizar.Enabled := True;
   btnAtualizarClick(Sender);
   btnDesconectar.Enabled := True;
+  imgStatusConexao.Picture.LoadFromFile('D:\DEV\Delphi\buscaClientes\src\assets\status\conexao_ok.png');
+end;
+
+procedure TformDB.btnDesconectarClick(Sender: TObject);
+begin
+  imgStatusConexao.Picture.LoadFromFile('D:\DEV\Delphi\buscaClientes\src\assets\status\sem_conexao.png');
+  btnDesconectar.Enabled := False;
+  btnCaminhoDB.Enabled := True;
+  edtCaminhoBanco.Enabled := True;
+  btnAtualizar.Enabled := False;
+
+  dtmPrincipal.DataModule1.FDQuery1.Active := False;
+  dtmPrincipal.DataModule1.ClientDataSet1.Active := False;
 end;
 
 procedure TformDB.edtCaminhoBancoChange(Sender: TObject);
