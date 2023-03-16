@@ -29,7 +29,11 @@ type
     Image1: TImage;
     OpenDialog1: TOpenDialog;
     btnConectar: TButton;
+    Panel2: TPanel;
+    btnDesconectar: TButton;
+    btnAtualizar: TButton;
     procedure btnCaminhoDBClick(Sender: TObject);
+    procedure edtCaminhoBancoChange(Sender: TObject);
   private
     { Private declarations }
   public
@@ -58,6 +62,14 @@ if OpenDialog1.Execute then
     else
       ShowMessage('Por favor selecione um arquivo com a extensão .FDB.');
   end;
+end;
+
+procedure TformDB.edtCaminhoBancoChange(Sender: TObject);
+begin
+  if (trim(edtCaminhoBanco.Text) <> '') then
+    btnConectar.Enabled := True
+  else
+    btnConectar.Enabled := False;
 end;
 
 end.

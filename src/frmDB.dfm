@@ -3,8 +3,8 @@ object formDB: TformDB
   Top = 0
   BorderIcons = [biSystemMenu]
   Caption = 'Banco de Dados'
-  ClientHeight = 294
-  ClientWidth = 635
+  ClientHeight = 174
+  ClientWidth = 531
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -393,11 +393,12 @@ object formDB: TformDB
     AlignWithMargins = True
     Left = 3
     Top = 3
-    Width = 629
+    Width = 525
     Height = 40
     Align = alTop
     Caption = 'Panel1'
     TabOrder = 0
+    ExplicitWidth = 629
     object edtCaminhoBanco: TEdit
       AlignWithMargins = True
       Left = 4
@@ -416,6 +417,7 @@ object formDB: TformDB
       ParentFont = False
       ReadOnly = True
       TabOrder = 1
+      OnChange = edtCaminhoBancoChange
       ExplicitHeight = 27
     end
     object btnCaminhoDB: TButton
@@ -433,41 +435,30 @@ object formDB: TformDB
       TabOrder = 0
       OnClick = btnCaminhoDBClick
     end
-    object btnConectar: TButton
-      AlignWithMargins = True
-      Left = 523
-      Top = 6
-      Width = 94
-      Height = 28
-      Margins.Left = 2
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
-      Align = alLeft
-      Caption = 'Conectar'
-      Enabled = False
-      TabOrder = 2
-    end
   end
   object GroupBox1: TGroupBox
     AlignWithMargins = True
-    Left = 150
-    Top = 76
-    Width = 335
-    Height = 168
-    Margins.Left = 150
-    Margins.Top = 30
-    Margins.Right = 150
-    Margins.Bottom = 50
+    Left = 196
+    Top = 51
+    Width = 330
+    Height = 118
+    Margins.Left = 5
+    Margins.Top = 5
+    Margins.Right = 5
+    Margins.Bottom = 5
     Align = alClient
     Caption = 'STATUS DA CONEX'#195'O'
     TabOrder = 1
+    ExplicitLeft = 150
+    ExplicitTop = 76
+    ExplicitWidth = 335
+    ExplicitHeight = 168
     object Image1: TImage
       AlignWithMargins = True
       Left = 5
       Top = 18
-      Width = 325
-      Height = 145
+      Width = 320
+      Height = 95
       Align = alClient
       Center = True
       Picture.Data = {
@@ -616,11 +607,60 @@ object formDB: TformDB
       ExplicitHeight = 105
     end
   end
+  object Panel2: TPanel
+    AlignWithMargins = True
+    Left = 3
+    Top = 49
+    Width = 185
+    Height = 122
+    Align = alLeft
+    TabOrder = 2
+    ExplicitLeft = 8
+    ExplicitTop = 69
+    ExplicitHeight = 41
+    object btnConectar: TButton
+      AlignWithMargins = True
+      Left = 3
+      Top = 6
+      Width = 176
+      Height = 30
+      Margins.Left = 2
+      Margins.Top = 5
+      Margins.Right = 5
+      Margins.Bottom = 5
+      Align = alTop
+      Caption = 'Conectar'
+      Enabled = False
+      TabOrder = 0
+    end
+    object btnDesconectar: TButton
+      AlignWithMargins = True
+      Left = 4
+      Top = 80
+      Width = 177
+      Height = 30
+      Align = alTop
+      Caption = 'Desconectar'
+      Enabled = False
+      TabOrder = 1
+    end
+    object btnAtualizar: TButton
+      AlignWithMargins = True
+      Left = 4
+      Top = 44
+      Width = 177
+      Height = 30
+      Align = alTop
+      Caption = 'Atualizar'
+      Enabled = False
+      TabOrder = 2
+    end
+  end
   object OpenDialog1: TOpenDialog
     DefaultExt = 'FDB'
     Filter = '|FDB'
     Title = 'Selecionar a BASE'
-    Left = 600
-    Top = 48
+    Left = 576
+    Top = 216
   end
 end
