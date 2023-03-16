@@ -20,4 +20,4 @@
 
 ## Sobre
 
-![alt text](https://github.com/AraujoRobson/buscaClientes/blob/main/prints/frmSobre.png)
+![Sobre](https://github.com/AraujoRobson/buscaClientes/blob/main/prints/frmSobre.png)
