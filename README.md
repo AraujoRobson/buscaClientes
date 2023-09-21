@@ -1,5 +1,7 @@
 # Busca de Clientes
 
+Esse software foi desenvolvido para facilitar a visualização dos convênios de algum cliente, é para um sistema chamado Clipp Store da Zucchetti.
+
 ## Tela Principal
   - Pesquisa por Nome ou CNPJ
   - Na aba convênios aparece qual o contrato do cliente.
